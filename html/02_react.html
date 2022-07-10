@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first React app</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root" class="demo"></div>
+
+    <script type="text/babel">
+      class Hello extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            name: 'All you need is React!',
+          };
+
+          this.reserveName = this.reserveName.bind(this);
+        }
+
+        reserveName() {
+          /*
+          this.setState((state) => ({
+            name: [...state.name].reverse().join(''),
+          }));
+          */
+          this.setState({ name: [...this.state.name].reverse().join('') });
+        }
+
+        /*
+        reserveName = () => {
+          this.setState((state) => ({
+            name: [...state.name].reverse().join(''),
+          }));
+        }*/
+
+        render() {
+          return (
+            <div>
+              <h1> React header </h1>
+              <h2> What is the state ? {this.state.name} </h2>
+              <button type="button" onClick={this.reserveName}>
+                Reserve
+              </button>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Hello />, document.getElementById('root'));
+    </script>
+  </body>
+
+  <style>
+    .demo {
+      font-family: sans-serif;
+      border: 1px solid #eee;
+      border-radius: 2px;
+      padding: 20px 30px;
+      margin-top: 1em;
+      margin-bottom: 40px;
+      user-select: none;
+      overflow-x: auto;
+    }
+  </style>
+</html>

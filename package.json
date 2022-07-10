@@ -1,0 +1,20 @@
+{
+  "name": "deepdive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01_class.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.18.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/node": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.18.6"
+  }
+}
