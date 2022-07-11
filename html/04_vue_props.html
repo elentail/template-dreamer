@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="root" class="demo">
+      <hello msg="You need to do something!!" />
+    </div>
+
+    <script>
+      const app = Vue.createApp({});
+      app.component('Hello', {
+        props: {
+          msg: {
+            type: String,
+            //default: '',
+            validator: function (value) {
+              return typeof value === 'string' && value.length > 0;
+            },
+          },
+        },
+        data: function () {
+          return {
+            name: 'All you need is Vue!',
+          };
+        },
+        methods: {
+          reserveName() {
+            this.name = [...this.name].reverse().join('');
+          },
+        },
+        template: `<div>
+          <h1> Props : {{ msg }} </h1>
+          <h2>What is the state ? {{ name }}</h2>
+          <button type='button' v-on:click='reserveName'>Reserve</button>
+        </div>`,
+      });
+      app.mount('#root');
+    </script>
+  </body>
+
+  <style>
+    .demo {
+      font-family: sans-serif;
+      border: 1px solid #eee;
+      border-radius: 2px;
+      padding: 20px 30px;
+      margin-top: 1em;
+      margin-bottom: 40px;
+      user-select: none;
+      overflow-x: auto;
+    }
+  </style>
+</html>

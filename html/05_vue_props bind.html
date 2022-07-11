@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="root" class="demo">
+      <Parent />
+    </div>
+
+    <script>
+      const app = Vue.createApp({});
+
+      app.component('Child', {
+        // props read-only
+        props: {
+          msg: {
+            type: String,
+            default: '',
+          },
+        },
+        methods: {
+          changeMessage: function () {
+            this.msg = 'Changed from Child!!';
+          },
+        },
+        template: `<div>
+          <p> [Child] Yes mom!: {{ msg }} </p>
+          <button type="button" v-on:click="changeMessage">Change from child</button>
+        </div>`,
+      });
+
+      app.component('Parent', {
+        data: function () {
+          return { msg: 'Listen to me baby, absolutely !!' };
+        },
+        methods: {
+          changeMessage: function () {
+            this.msg = 'Me-rong!!!';
+          },
+        },
+        template: `<div>
+          <p> [Parent] I am the Parent for you! </p>
+          <p><code> [Parent-msg] {{ msg }}</code> </p>
+        </div>
+        <child :msg="msg"/>
+        <button type="button" v-on:click="changeMessage">Change from Parent</button>
+        `,
+      });
+
+      app.mount('#root');
+    </script>
+  </body>
+
+  <style>
+    .demo {
+      font-family: sans-serif;
+      border: 1px solid #eee;
+      border-radius: 2px;
+      padding: 20px 30px;
+      margin-top: 1em;
+      margin-bottom: 40px;
+      user-select: none;
+      overflow-x: auto;
+    }
+
+    code {
+      background-color: blanchedalmond;
+    }
+  </style>
+</html>

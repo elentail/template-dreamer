@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="root" class="demo">
+      <life-view />
+    </div>
+
+    <script>
+      const app = Vue.createApp({});
+
+      app.component('LifeView', {
+        template: `<div>
+        </div>`,
+      });
+
+      app.mount('#root');
+    </script>
+  </body>
+
+  <style>
+    .demo {
+      font-family: sans-serif;
+      border: 1px solid #eee;
+      border-radius: 2px;
+      padding: 20px 30px;
+      margin-top: 1em;
+      margin-bottom: 40px;
+      user-select: none;
+      overflow-x: auto;
+    }
+  </style>
+</html>
