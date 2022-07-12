@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vuex"></script>
+  </head>
+  <body>
+    <div id="root" class="demo">
+      <div><chart-view /></div>
+      <div><table-view /></div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({});
+      const store = new Vuex.Store({
+        state: {
+          count: 0,
+        },
+        getters: {
+          getCount(state) {
+            return state.count;
+          },
+        },
+        mutations: {
+          increment(state) {
+            state.count++;
+          },
+        },
+
+        actions: {
+          /*
+          increment(context, increment_value){
+            console.log(increment_value);
+            context.commit('increment', increment_value)
+          }
+          */
+        },
+      });
+
+      app.use(store);
+
+      app.component('ChartView', {
+        methods: {},
+        template: `<div><span>{{ count }}</span></div>`,
+        computed: {
+          count() {
+            return this.state.count;
+          },
+        },
+      });
+
+      app.component('TableView', {
+        methods: {},
+        template: `<div>table</div>`,
+      });
+      app.mount('#root');
+    </script>
+  </body>
+
+  <style>
+    .demo {
+      font-family: sans-serif;
+      border: 1px solid #eee;
+      border-radius: 2px;
+      padding: 20px 30px;
+      overflow-x: auto;
+    }
+  </style>
+</html>
