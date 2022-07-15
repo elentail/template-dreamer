@@ -21,7 +21,7 @@
         constructor(props) {
           super(props);
           this.state = {
-            name: 'All you need is React!',
+            name: "All you need is React!",
           };
 
           this.reserveName = this.reserveName.bind(this);
@@ -33,7 +33,7 @@
             name: [...state.name].reverse().join(''),
           }));
           */
-          this.setState({ name: [...this.state.name].reverse().join('') });
+          this.setState({ name: [...this.state.name].reverse().join("") });
         }
 
         /*
@@ -55,7 +55,7 @@
           );
         }
       }
-      ReactDOM.render(<Hello />, document.getElementById('root'));
+      ReactDOM.render(<Hello />, document.getElementById("root"));
     </script>
   </body>
 
